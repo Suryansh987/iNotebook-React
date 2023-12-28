@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import NoteContext from '../Context/NoteContext'
 
 export default function UserNotes() {
+    const a = useContext(NoteContext)
     return (
-        <div className='container'>
+        <div className='container my-3'>
             <div className="card">
                 <div className="card-header">
-                    Featured
+                    { console.log(a)}
+                    {a.name}
                 </div>
                 <div className="card-body">
                     <h5 className="card-title">Special title treatment</h5>

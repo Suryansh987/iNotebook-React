@@ -6,16 +6,19 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
+import NoteState from './Context/NoteState';
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar/>
-        <Routes>
-          <Route exact path='/' element={ <Notebook/>}/>
-          <Route exact path ='/usernotes' element={<UserNotes/>}/>
-        </Routes>
+        <NoteState>
+          <Navbar />
+          <Routes>
+            <Route exact path='/' element={<Notebook />} />
+            <Route exact path='/usernotes' element={<UserNotes />} />
+          </Routes>
+        </NoteState>
       </BrowserRouter>
     </>
   );
