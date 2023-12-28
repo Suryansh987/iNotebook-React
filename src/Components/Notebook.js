@@ -1,8 +1,10 @@
 import React from 'react'
+import Notes from './Notes';
 
 export default function Notebook() {
     return (
         <>
+        <Notes></Notes>
         <div className='container p-2 my-5'>
             <h1 className='my-3 text-center '>Welcome!!</h1>
             <div className="mb-3">

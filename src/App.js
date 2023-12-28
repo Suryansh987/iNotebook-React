@@ -1,13 +1,22 @@
-import logo from './logo.svg';
 import Navbar from './Components/Navbar'
-import './App.css';
 import Notebook from './Components/Notebook';
+import UserNotes from './Components/UserNotes';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom';
 
 function App() {
   return (
     <>
-    <Navbar/>
-    <Notebook/>
+      <BrowserRouter>
+        <Navbar/>
+        <Routes>
+          <Route exact path='/' element={ <Notebook/>}/>
+          <Route exact path ='/usernotes' element={<UserNotes/>}/>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
