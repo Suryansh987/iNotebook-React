@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-
-// const [state, setstate] = useState()
-
 
 export default function Navbar() {
     const [state, setstate] = useState('/')
+
     const location = useLocation()
+
     useEffect(() => {
       setstate(location.pathname)
     }, [location])

@@ -1,10 +1,18 @@
-import React from 'react'
+import React,{useContext,useEffect} from 'react'
 import Notes from './Notes';
+import NoteContext from '../Context/NoteContext';
 
 export default function Notebook() {
+    const {notes,fetchall} = useContext(NoteContext)
+
+    useEffect(() => {
+      fetchall()
+    }, [])
+    
+
     return (
         <>
-        <Notes></Notes>
+        
         <div className='container p-2 my-5'>
             <h1 className='my-3 text-center '>Welcome!!</h1>
             <div className="mb-3">
@@ -16,6 +24,14 @@ export default function Notebook() {
                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <button type="button" className="btn btn-primary">Primary</button>
+            </div>
+            <div className="container row-my-3">
+            <div className='container'>
+            {notes.length===0 && "HI"}
+            </div>
+            {notes.map((note)=>{
+                return (<Notes key={note._id} noteTitle={note.title} noteTag={note.tag} noteDescription={note.description} />)
+            })}
             </div>
         </>
     );
