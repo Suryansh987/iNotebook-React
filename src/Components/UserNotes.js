@@ -5,6 +5,7 @@ import NoteItems from './NoteItems'
 
 export default function UserNotes() {
     const { notes } = useContext(NoteContext)
+    console.log(notes)
     
     return (
         <>
