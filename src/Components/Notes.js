@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 
 export default function Notes(props) {
@@ -14,9 +13,6 @@ export default function Notes(props) {
                     <div className="card-body">
                         <h5 className="card-title">{noteTitle}</h5>
                         <p className="card-text">{noteDescription}</p>
-                        <button className="btn btn-primary mx-2">Read More</button>
-                        <button className="btn btn-primary mx-2">Update</button>
-                        <button className="btn btn-primary mx-2">Delete</button>
                     </div>
                 </div>
             </div>

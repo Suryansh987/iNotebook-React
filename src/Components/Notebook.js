@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 export default function Notebook() {
     const { notes, fetchall, addnote } = useContext(NoteContext)
-    const displaySize = 3
-    const displayNotes = notes.slice(0, displaySize)
+        const displaySize = 3
+        let displayNotes = notes.slice(notes.length-displaySize, notes.length).reverse()
     const [note, setnote] = useState({
         title: "",
         description: "",
@@ -15,7 +15,9 @@ export default function Notebook() {
     })
     useEffect(() => {
         fetchall()
+        // eslint-disable-next-line
     }, [])
+    
 
     const handleOnChange = (e) => {
         setnote({ ...note, [e.target.name]: e.target.value })
@@ -35,8 +37,9 @@ export default function Notebook() {
     return (
         <>
             <form onSubmit={handleOnSubmit} noValidate>
-                <div className='container p-2 my-5'>
+                <div className='container p-2 mt-5'>
                     <h1 className='my-3 text-center '>Welcome!!</h1>
+                    <h3></h3>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Title</label>
                         <input type="text" className="form-control" id="title" name="title" onChange={handleOnChange} value={note.title} placeholder="Enter your Title here..." autoComplete='true' />
@@ -49,10 +52,13 @@ export default function Notebook() {
                         <label htmlFor="tag" className="form-label">Tag</label>
                         <input type="text" className="form-control" id="tag" name="tag" onChange={handleOnChange} value={note.tag} placeholder="Enter your Tag here..." autoComplete='true' />
                     </div>
+                    <div className="d-flex justify-content-center my-5">
                     <button disabled={!note.title && !note.description} type="submit" className="btn btn-primary">Add Note</button>
+                    </div>
                 </div>
             </form>
-            <div className="container row-my-3">
+            <div className="container row-my-5">
+                <h1 className='text-center'>LatestNotes</h1>
                 <div className='container'>
                     {notes.length === 0 ? "Add some Notes First" : 
                     displayNotes.map((note) => {
