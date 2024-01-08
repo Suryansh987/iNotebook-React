@@ -1,11 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import NoteContext from '../Context/NoteContext'
 import NoteItems from './NoteItems'
+import Modal from './Modal'
 
 
 export default function UserNotes() {
     const { notes } = useContext(NoteContext)
+    const ref = useRef(null)
     
+
     return (
         <>
             <div className="container row-my-3">

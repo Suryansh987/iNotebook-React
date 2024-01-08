@@ -1,6 +1,8 @@
 import Navbar from './Components/Navbar'
 import Notebook from './Components/Notebook';
 import UserNotes from './Components/UserNotes';
+import Login from './Components/Login'
+import Signup from './Components/Signup'
 import {
   BrowserRouter,
   Routes,
@@ -17,6 +19,8 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Notebook />} />
             <Route exact path='/usernotes' element={<UserNotes />} />
+            <Route exact path='/login' element={<Login />} />
+            <Route exact path='/signup' element={<Signup />} />
           </Routes>
         </NoteState>
       </BrowserRouter>

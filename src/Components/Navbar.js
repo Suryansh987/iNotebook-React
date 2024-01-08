@@ -23,9 +23,10 @@ export default function Navbar() {
                                 <Link className={`nav-link ${state==='/usernotes'?"active":""}`} to="/usernotes">Your_Notes</Link>
                             </li>
                         </ul>
-                        <form className="d-flex" role="search" data-bs-theme="light">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                                <button className="btn btn-outline-primary bg-light" type="submit">Search</button>
+                        <form className="d-flex" role="search" data-bs-theme="dark">
+                            {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/> */}
+                                <Link to='/login' className="btn btn-primary mx-2" type="submit">Login</Link>
+                                <Link to='/signup' className="btn btn-primary mx-2" type="submit">Signup</Link>
                         </form>
                     </div>
                 </div>
